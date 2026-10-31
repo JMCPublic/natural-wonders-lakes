@@ -222,7 +222,7 @@ const WHERE={World:{t:'🌍 World',s:'Lakes from every continent'},EU:{t:'Europe
 const RANKBY={mixed:{t:'Mixed',s:'Each round tells you which'},area:{t:'Area'},depth:{t:'Depth'},length:{t:'Length'}};
 const DEPTHN={3:{t:'2nd and 3rd',s:'Three lakes'},5:{t:'2nd to 5th',s:'Five lakes. Hard'}};
 const ROUNDS=[5,10];const ORD=['1st','2nd','3rd','4th','5th'];const LET='abcde';const MINGAP=1.05;
-let S={screen:'menu',where:'World',rankby:'mixed',depthn:5,rounds:5,layout:'auto',game:[],cur:0};
+let S={screen:'menu',where:'World',rankby:'mixed',depthn:3,rounds:5,layout:'auto',game:[],cur:0};
 try{const s=JSON.parse(localStorage.getItem('nwl_settings')||'{}');['where','rankby','depthn','rounds','layout'].forEach(k=>{if(s[k]!==undefined)S[k]=s[k]})}catch(e){}
 function save(){try{localStorage.setItem('nwl_settings',JSON.stringify({where:S.where,rankby:S.rankby,depthn:S.depthn,rounds:S.rounds,layout:S.layout}))}catch(e){}}
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
