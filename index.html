@@ -192,7 +192,7 @@ html.phone body.timed .rank .btn:not([disabled]){position:sticky!important;botto
 <div class="wrap" id="app"></div>
 <div class="toast" id="toast"></div>
 <script>
-const VERSION='v5';
+const VERSION='v6';
 /* ---------- timer (shared) ---------- */
 const TM={on:true,left:0,secs:15,copper:5,t0:0,iv:null,key:null,onUp:null,
   start(key,secs,copper,onUp){if(!this.on){this.hide();return}if(this.key===key&&this.iv)return;this.stop();this.key=key;this.secs=secs;this.copper=copper;this.onUp=onUp;this.t0=performance.now();this.build();this.draw(secs);
@@ -360,6 +360,12 @@ html.nwfit-on .wrap{padding-bottom:0!important}
 html.phone.nwfit-on .board{display:flex;flex-direction:column;gap:8px;flex:1;min-height:0}
 html.phone.nwfit-on .board>.mapcard{height:auto;flex:1 1 0;min-height:0;margin-bottom:0}
 html.phone.nwfit-on .board>.rank{flex:none;overflow:hidden}
+/* Lakes: the map and the row of lake shapes share one column; the map gives way so the shapes never spill over the ranking boxes */
+html.phone.nwfit-on .board>.lcol{flex:1 1 0;min-height:0;gap:6px}
+html.phone.nwfit-on .board>.lcol>.mapcard{height:auto!important;flex:1 1 0!important;min-height:78px;margin-bottom:0}
+html.phone.nwfit-on .board>.lcol>.lcards{flex:none;margin-bottom:0}
+html.phone.nwfit-on .lcard{padding:4px 4px 5px}
+html.phone.nwfit-on .lcard svg{aspect-ratio:auto;height:clamp(40px,9vh,84px);max-height:none}
 html.nwfit-on .rank{overflow:hidden}
 /* tighter spacing when the window is short, before anything has to shrink */
 @media (max-height:760px){
